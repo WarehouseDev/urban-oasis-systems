@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap");
+
+:root {
+  --primary-bg: #e3e2dd;
+  --primary-text: #2e2e2e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+}
+body {
+  font-family: Mukta, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+}
+/* header */
+header {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 5rem;
+}
+header button {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+header img {
+  width: 2rem;
+}
+
+/* hero section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: url(./img/roof.jpg) no-repeat center center / cover;
+  background-attachment: fixed;
+}
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(./img/cover-img.png) no-repeat right bottom / cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.cover > * {
+  max-width: 500px;
+  text-align: right;
+  padding: 3rem 5rem;
+}
+.cover h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+.cover h3 {
+  font-size: 1.25rem;
+}
+
+/* grid */
+.stats {
+  padding: 5rem;
+}
+.stats h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+.grid {
+  padding: 5rem 0;
+  font-size: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  grid-template-areas:
+    "cost cost retention image image image"
+    "air lifespan lifespan image image image";
+}
+.grid > * {
+  background-color: var(--primary-text);
+  color: var(--primary-bg);
+  border-radius: 100vw;
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.cost {
+  grid-area: cost;
+}
+.retention {
+  grid-area: retention;
+}
+.lifespan {
+  grid-area: lifespan;
+}
+.air {
+  grid-area: air;
+}
+.image {
+  grid-area: image;
+  background-color: transparent;
+}
+
+/* second hero */
+.hero.second {
+  background-image: url(./img/facade.jpg);
+}
+.hero.second .cover {
+  rotate: 180deg;
+}
+
+.hero.second h2 {
+  position: absolute;
+  max-width: 500px;
+  padding: 3rem 5rem;
+  border-radius: 2rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  header {
+    padding: 1rem;
+  }
+  .cover > * {
+    padding: 2rem 1rem;
+  }
+  .stats {
+    padding: 5rem 1rem;
+  }
+  .grid {
+    grid-template-areas:
+      "cost cost cost  retention retention retention"
+      "air air air lifespan lifespan lifespan"
+      "image image image image image image";
+  }
+  .hero.second h2 {
+    max-width: 350px;
+    padding: 2rem 1rem;
+    background-color: var(--primary-bg);
+  }
+}
